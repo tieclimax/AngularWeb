@@ -1,0 +1,80 @@
+
+<div class ="p-grid">
+        <div class="p-col-6">
+<p-panel header="SearchPanel">
+        <div class ="p-grid">
+        <div class="p-col-6">
+            <label for="department">Department : </label>
+        </div>        
+    <div class="p-col-6">
+        <p-dropdown 
+            id="department"
+            [options]="departmentList"  
+            placeholder="Select a department" 
+            optionLabel="departmentName" 
+           [(ngModel)] ="departmentSelected"
+            [showClear]="true">
+
+        </p-dropdown>
+    </div>
+    
+        <ng-container *ngIf="!!departmentSelected">
+            <div class="p-col-6">
+                <label>DepartmentCode</label>
+            </div>
+            <div class="p-col-6">
+                <input
+                    type="text" 
+                    pInputText
+                    [value]= "departmentSelected?.departmentCode"
+                    [disabled]="true"
+                />
+            </div>
+        </ng-container>
+    
+    
+    <div class="p-col-6">
+        <p>Gender</p>
+    </div>
+    <div class="p-col-6">
+        <ng-container *ngFor ="let item of genderList">
+                <p-radioButton 
+                name ="gender"
+                [value]="item.value"
+                [label]="item.label"
+                [style]="{'margin-left' : '10px' }"
+                >
+            </p-radioButton>
+               
+        </ng-container>          
+    </div>    
+
+
+<div class="p-col-12">
+       
+    </div>
+        
+    <div class="p-col-6"> FirstName </div>
+        <div class="p-col-6">
+            <input id="firstName" type="text" size="30" [(ngModel)] ="firstName" pInputText> 
+        </div>
+    <div class="p-col-6">LastName </div>
+        <div class="p-col-6">
+            <input id="lastName" type="text" size="30" [(ngModel)] ="lastName" pInputText > 
+        </div>
+    </div>
+        </p-panel>
+    </div>
+</div>    
+<div class="p-grid">
+<div class="btnSubmit">
+        <div class="p-col-12" >
+                 <button pButton type="add" (click)="addClick($event)"  >Add</button>
+                 
+       
+       
+                <button pButton type="reset" (click)="addClickcancle($event)" >Reset</button>
+        </div>     
+     
+</div>
+</div>

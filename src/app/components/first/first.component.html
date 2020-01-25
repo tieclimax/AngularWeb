@@ -1,0 +1,15 @@
+<p>first works!</p>
+name: {{name}}
+<br>
+<input type="text" [disabled]="false" (input)="onInput($event)" (blur)="onBlur($event)">
+<br>
+ngmodel
+<input type="text" [(ngModel)]="name">
+
+<br><br>
+Number
+<input type="text"   [value]="num"/>
+<button type="button"  (click)="plus($event)" >+
+</button>
+
+<button type="button"  (click)="minus($event)"  >-</button>
